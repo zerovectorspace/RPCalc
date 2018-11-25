@@ -1,0 +1,53 @@
+name:                RPCalc
+version:             0.1.0.0
+github:              "zerovectorspace/RPCalc"
+license:             BSD3
+author:              "z y"
+maintainer:          "zachary_young@zerovector.space"
+copyright:           "Copyright 2018 Zachary Young"
+
+extra-source-files:
+- README.md
+- ChangeLog.md
+
+# Metadata used when publishing your package
+# synopsis:            Short description of your package
+# category:            Haskell
+
+# To avoid duplicated efforts in documentation and dealing with the
+# complications of embedding Haddock markup inside cabal files, it is
+# common to point users to the README.md file.
+description:         Please see the README on GitHub at <https://github.com/zerovectorspace/RPCalc#readme>
+
+dependencies:
+- base >= 4.7 && < 5
+- stm
+- mtl
+- time
+
+library:
+  source-dirs: src
+
+executables:
+  RPCalc-exe:
+    main:                Main.hs
+    source-dirs:         app
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    - -fmax-errors=1
+    dependencies:
+    - RPCalc
+
+tests:
+  RPCalc-test:
+    main:                Spec.hs
+    source-dirs:         test
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    - -fmax-errors=1
+    dependencies:
+    - RPCalc
